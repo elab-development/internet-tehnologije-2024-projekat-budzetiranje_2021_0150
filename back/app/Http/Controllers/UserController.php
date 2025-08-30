@@ -58,4 +58,22 @@ class UserController extends Controller
         }
     }
 
+
+    
+    public function allWithoutAdmin()
+    {
+        try{
+            $users = User::whereIn('role', ['vip', 'regular'])->paginate(5);
+            return UserResource::collection($users);
+        }
+
+        catch (Exception $e) {
+          
+            return response()->json([
+             'message' =>  'Failed to load users',
+                'error' => $e->getMessage()
+            ], 500); 
+        }
+    }
+
 }
