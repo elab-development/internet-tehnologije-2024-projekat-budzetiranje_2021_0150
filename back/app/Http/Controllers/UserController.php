@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Controllers;
+use App\Http\Resources\GroupResource;
+use App\Http\Resources\UserResource;
+use App\Http\Resources\StatsResource;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+   
+ public function myProfile(){
+        try{
+            $user = Auth::user();
+            $groupCount = $user->groups()->count();
+
+  
+    $totalClaims = $user->claims()
+        ->where('status', 'unpaid')
+        ->sum('amount');
+
+    $totalDebts = $user->debts()
+        ->where('status', 'unpaid')
+        ->sum('amount');
+
+    return response()->json([
+            'user'=>new UserResource($user),
+            'group_count' => $groupCount,
+            'total_claims' => $totalClaims,
+            'total_debts' => $totalDebts,
+       ], 200); 
+        } catch (Exception $e) {
+          
+            return response()->json([
+             'message' =>  'Failed to load profile data',
+                'error' => $e->getMessage()
+            ], 500); 
+        }
+    }
+}
