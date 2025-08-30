@@ -39,4 +39,23 @@ class UserController extends Controller
             ], 500); 
         }
     }
+
+
+    
+    public function index()
+    {
+        try{
+            $users = User::all();
+            return UserResource::collection($users);
+        }
+
+        catch (Exception $e) {
+          
+            return response()->json([
+             'message' =>  'Failed to load users',
+                'error' => $e->getMessage()
+            ], 500); 
+        }
+    }
+
 }
