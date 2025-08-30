@@ -14,6 +14,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('users',[UserController::class,'index']);
     Route::get('users/edit',[UserController::class,'allWithoutAdmin']);
     Route::put('users/change-role',[UserController::class,'changeUserRole']);
+     Route::delete('users/{id}',[UserController::class,'destroy']);
  
    
     

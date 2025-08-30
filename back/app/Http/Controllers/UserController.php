@@ -114,4 +114,33 @@ class UserController extends Controller
         }
     }
 
+
+       public function destroy(Request $request,$id)
+    {
+        try {
+          
+            $user = Auth::user();
+            if(!$user->role==='admin'){
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You do not have permission to delete this user.'
+                ], 403);
+            }
+
+
+            $user = User::findOrFail($id);
+            $user->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'User has been successfully deleted.'
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred while deleting the user',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
 }
