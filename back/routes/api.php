@@ -13,6 +13,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile',[UserController::class,'myProfile']);
     Route::get('users',[UserController::class,'index']);
     Route::get('users/edit',[UserController::class,'allWithoutAdmin']);
+    Route::put('users/change-role',[UserController::class,'changeUserRole']);
  
    
     

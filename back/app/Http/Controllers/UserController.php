@@ -76,4 +76,42 @@ class UserController extends Controller
         }
     }
 
+
+
+     public function changeUserRole(Request $request)
+    {
+        try{
+            $validated = $request->validate([
+                'user_id' => 'exists:users,id',
+            ]);
+      
+
+        if(Auth::user()->role!='admin'){
+            return response()->json([
+                'error'=>'You do not have permission to change the roll',
+            ],403);
+        }
+
+        $user = User::findOrFail($validated['user_id']);
+        if($user->role=='vip'){
+            $user->role='regular';
+        }
+        else if($user->role=='regular'){
+            $user->role='vip';
+        }
+        $user->save();
+        return response()->json([
+            'message'=>'User role successfully changed'
+        ]);
+    }
+        
+        catch (Exception $e) {
+          
+            return response()->json([
+             'message' =>  'Failed to load users',
+                'error' => $e->getMessage()
+            ], 500); 
+        }
+    }
+
 }
