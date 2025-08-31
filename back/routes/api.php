@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonalExpenseController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\GroupExpenseController;
+use App\Http\Controllers\DebtClaimController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -31,5 +32,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
      Route::post('groups/group-expenses',[GroupExpenseController::class,'store']);
-    
+     Route::put("groups/group-expenses/{id}/pay",[DebtClaimController::class,'paidDebt']);
 });
