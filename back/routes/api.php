@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('users/edit',[UserController::class,'allWithoutAdmin']);
     Route::put('users/change-role',[UserController::class,'changeUserRole']);
     Route::delete('users/{id}',[UserController::class,'destroy']);
-
+    Route::get('admin/stats',[UserController::class,'stats']);
 
 
     Route::post('vip/personal-expenses',[PersonalExpenseController::class,'store']);

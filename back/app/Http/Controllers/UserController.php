@@ -143,4 +143,28 @@ class UserController extends Controller
         }
     }
 
+
+
+    
+    public function stats(){
+        try{
+            $user = Auth::user();
+            if($user->role!='admin'){
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'You are not admin.',
+                    ], 403);
+            }
+    
+            return new StatsResource(null);
+        }
+        catch (Exception $e) {
+          
+            return response()->json([
+             'message' =>  'Failed to load stats',
+                'error' => $e->getMessage()
+            ], 500); 
+        }
+       
+    }
 }
