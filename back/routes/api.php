@@ -22,5 +22,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('vip/personal-expenses',[PersonalExpenseController::class,'store']);
     Route::get('vip/personal-expenses',[PersonalExpenseController::class,'myPersonalExpenses']);
    
+
+     Route::apiResource('groups',GroupController::class)->only([
+            'index', 'show', 'store'
+        ]);
     
 });
