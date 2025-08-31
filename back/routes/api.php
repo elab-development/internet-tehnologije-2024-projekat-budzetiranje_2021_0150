@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonalExpenseController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\GroupExpenseController;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -26,5 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
      Route::apiResource('groups',GroupController::class)->only([
             'index', 'show', 'store'
         ]);
+
+
+     Route::post('groups/group-expenses',[GroupExpenseController::class,'store']);
     
 });
