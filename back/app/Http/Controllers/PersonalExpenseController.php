@@ -44,6 +44,28 @@ class PersonalExpenseController extends Controller
 
 
 
+    public function myPersonalExpenses(Request $request)
+    {
+        try {
+
+            
+            if(Auth::user()->role!='vip'){
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unauthorized user. You must have a VIP role to load personal expenses!!!',
+                ], 401);
+            }
+           
+            $myExpenses = Auth::user()->personalExpenses()->orderBy('date', 'desc')->get();
+            return PersonalExpenseResource::collection($myExpenses);
+          
+        } catch (\Exception $e) {
+         
+            return response()->json([
+                'error' => 'Failed to load personal expenses. Please try again later.',
+            ], 500); 
+        }
+    }
     
 
 
