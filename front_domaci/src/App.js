@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Login from './Components/Login';
 import Register from './Components/Register';
-
+import Profile from './Components/Profile';
 
 function App() {
   
@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
+           <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>
