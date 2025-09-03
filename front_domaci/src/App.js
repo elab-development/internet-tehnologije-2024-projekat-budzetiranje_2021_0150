@@ -9,6 +9,7 @@ import Groups from './Components/Groups';
 import GroupExpenses from './Components/GroupExpenses';
 import CreateGroup from './Components/CreateGroup';
 import Statistics from './Components/Statistics';
+import Users from './Components/Users';
 function App() {
   
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/groups/:id" element={<GroupExpenses />} />
           <Route path="/create-group" element={<CreateGroup/>} />
           <Route path="/statistika" element={<Statistics />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
       </div>
     </Router>
