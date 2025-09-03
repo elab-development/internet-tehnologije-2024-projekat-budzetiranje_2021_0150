@@ -10,6 +10,7 @@ import GroupExpenses from './Components/GroupExpenses';
 import CreateGroup from './Components/CreateGroup';
 import Statistics from './Components/Statistics';
 import Users from './Components/Users';
+import VipPersonalExpenses from './Components/VipPersonalExpences';
 function App() {
   
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/create-group" element={<CreateGroup/>} />
           <Route path="/statistika" element={<Statistics />} />
           <Route path="/users" element={<Users />} />
+           <Route path="/personal-expences" element={<VipPersonalExpenses />} />
         </Routes>
       </div>
     </Router>
