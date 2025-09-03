@@ -1,0 +1,218 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .expenses-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+
+  .add-expense-button {
+    display: inline-block;
+    margin: 0 auto 20px auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .add-expense-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+  }
+  
+
+  .expenses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+
+  .expense-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .expense-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .expense-title {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  .expense-paid-by,
+  .expense-amount {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #7f8c8d;
+  }
+  
+  .expense-amount {
+    font-weight: bold;
+    color: #2ecc71;
+  }
+  
+
+  .expense-debts h4 {
+    font-size: 1.1rem;
+    margin: 15px 0 10px;
+    color: #2c3e50;
+  }
+  
+  .debt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 8px 10px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+  }
+  
+  .debt-item span {
+    font-size: 0.9rem;
+    color: #34495e;
+  }
+  
+
+  .mark-paid-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .mark-paid-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+  }
+  
+
+  .expense-debts p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    text-align: center;
+  }
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .modal-content label input,
+  .modal-content label select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .modal-content label input:focus,
+  .modal-content label select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-actions button:first-child {
+    background: #007bff;
+    color: #fff;
+  }
+  
+  .modal-actions button:first-child:hover {
+    background: #0056b3;
+  }
+  
+  .modal-actions button:last-child {
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  .modal-actions button:last-child:hover {
+    background: #e0e0e0;
+  }
+  

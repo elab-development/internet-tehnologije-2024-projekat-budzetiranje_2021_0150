@@ -6,6 +6,7 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Profile from './Components/Profile';
 import Groups from './Components/Groups';
+import GroupExpenses from './Components/GroupExpenses';
 function App() {
   
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
            <Route path="/profile" element={<Profile />} />
               <Route path="/groups" element={<Groups />} />
+                 <Route path="/groups/:id" element={<GroupExpenses />} />
         </Routes>
       </div>
     </Router>
