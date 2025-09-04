@@ -5,6 +5,7 @@ import { useState } from "react";
 import Login from './Components/Login';
 import Register from './Components/Register';
 import Profile from './Components/Profile';
+import Groups from './Components/Groups';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+            <Route path="/groups" element={<Groups />} />
         </Routes>
       </div>
     </Router>
