@@ -8,7 +8,7 @@ import Profile from './Components/Profile';
 import Groups from './Components/Groups';
 import GroupExpenses from './Components/GroupExpenses';
 import CreateGroup from './Components/CreateGroup';
-
+import Statistics from './Components/Statistics';
 function App() {
 
 
@@ -22,6 +22,7 @@ function App() {
           <Route path="/groups" element={<Groups />} />
           <Route path="/groups/:id" element={<GroupExpenses />} />
           <Route path="/create-group" element={<CreateGroup />} />
+          <Route path="/statistika" element={<Statistics />} />
         </Routes>
       </div>
     </Router>
