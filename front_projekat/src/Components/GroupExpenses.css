@@ -1,0 +1,388 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .expenses-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+
+  .add-expense-button {
+    display: inline-block;
+    margin: 0 auto 20px auto;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  .add-expense-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+  }
+  
+
+  .expenses-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+
+  .expense-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .expense-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .expense-title {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 10px;
+  }
+  
+  .expense-paid-by,
+  .expense-amount {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #7f8c8d;
+  }
+  
+  .expense-amount {
+    font-weight: bold;
+    color: #2ecc71;
+  }
+  
+
+  .expense-debts h4 {
+    font-size: 1.1rem;
+    margin: 15px 0 10px;
+    color: #2c3e50;
+  }
+  
+  .debt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 8px 10px;
+    background-color: #ecf0f1;
+    border-radius: 6px;
+  }
+  
+  .debt-item span {
+    font-size: 0.9rem;
+    color: #34495e;
+  }
+  
+
+  .mark-paid-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .mark-paid-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+  }
+  
+
+  .expense-debts p {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    text-align: center;
+  }
+  
+
+
+
+  .debt-item.paid {
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb;
+  }
+  
+  .paid-message {
+    color: #28a745; 
+  }
+  
+
+
+
+
+
+
+ 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.close-modal {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7f8c8d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: #e74c3c;
+}
+
+
+.modal-form {
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-form input,
+.modal-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #bdc3c7;
+  outline: none;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+}
+
+
+
+.modal-form input[name="purpose"] {
+  width: 80%; 
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #bdc3c7;
+  outline: none;
+}
+
+.modal-form input[name="purpose"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+}
+
+
+.modal-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.save-expense-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-end;
+}
+
+.save-expense-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+.save-expense-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
+.filters {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.filters input {
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filters input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+
+.expenses-list {
+  margin-top: 20px;
+}
+
+
+.expense-card {
+  background: #fff;
+  padding: 40px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expense-header {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+.expense-header h3 {
+  margin: 0;
+}
+
+.expense-date,
+.expense-paid-by {
+  font-size: 14px;
+  color: #777;
+}
+
+.expense-amount {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.expense-debts h4 {
+  margin-top: 15px;
+}
+
+.debt-item {
+  margin-bottom: 10px;
+}
+
+.paid {
+  color: green;
+}
+
+.mark-paid-button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 6px 12
+}
+
+
+
+
+select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+
+select:hover {
+  border-color: #888;
+  background-color: #e8e8e8;
+}
+
+
+select:focus {
+  border-color: #4d90fe;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(77, 144, 254, 0.5);
+}
+
+
+select + label {
+  margin-top: 10px;
+}
+
+select option {
+  padding: 10px;
+}
