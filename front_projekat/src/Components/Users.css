@@ -44,6 +44,20 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
+
+  .delete-user-button{
+    padding: 10px 15px;
+    background-color: #e52b1e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+    .delete-user-button:hover{
+         background-color: #820d05;
+    }
   
   .toggle-role-button:hover {
     background-color: #1565c0;

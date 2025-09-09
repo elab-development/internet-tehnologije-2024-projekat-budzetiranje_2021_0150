@@ -79,6 +79,32 @@ const Users = () => {
     }
   };
 
+
+  const handleDeleteUser = async (userId, username) => {
+    const isConfirmed = window.confirm(`Da li ste sigurni da želite da obrišete korisnika ${username}?`);
+
+    if (isConfirmed) {
+       try {
+
+      const response = await axios.delete(
+        `http://localhost:8000/api/users/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+
+       }
+       catch (error) {
+      console.error("Greška pri pozivanju API-ja:", error);
+    }
+
+      alert(`Korisnik ${username} (ID: ${userId}) je obrisan!`);
+      setUsers(prevUsers => prevUsers.filter(user => user.id !== userId));
+    }
+  }
+
   return (
     <>
       <Navigation />
@@ -92,6 +118,7 @@ const Users = () => {
               <th>Email</th>
               <th>Uloga</th>
               <th>Akcije</th>
+              <th>Brisanje</th>
             </tr>
           </thead>
           <tbody>
@@ -109,6 +136,14 @@ const Users = () => {
                     onClick={() => toggleUserRole(user.id)}
                   >
                     {user.role === "regular" ? "Promeni u VIP" : "Promeni u Običnog"}
+                  </button>
+                </td>
+                <td> 
+                  <button
+                    className="delete-user-button"
+                    onClick={() => handleDeleteUser(user.id, user.username)}
+                  >
+                    Obriši
                   </button>
                 </td>
               </tr>
